@@ -1,0 +1,117 @@
+.popups {
+    .modal-dialog {
+        .popup {
+            // cash in out
+            .cash-move{
+                .input-type.highlight{
+                    background: #64AF8A !important;
+                }
+            }
+            input,textarea,select{
+                &:focus{
+                    box-shadow: 0px 0px 0px 3px var(--theme_primary_color) !important;
+                    border-color: var(--theme_primary_color) !important;
+                }
+            }
+            .popup-input{
+                box-shadow: 0px 0px 0px 3px var(--theme_primary_color) !important;
+            }
+            .button.highlight{
+                color: #fff;
+                background-color: var(--theme_primary_color) !important;
+                &:active{
+                    color: #fff !important;
+                }
+            }
+            .button:not(.highlight){
+                color: var(--theme_primary_color);
+                &:active{
+                    color: #fff !important;
+                }
+            }   
+
+            footer {
+                flex-direction: row;
+                border: none !important;
+                display: flex;
+                width: 100%;
+                .button {
+                    margin: 3px !important;
+                    width: 100%;
+                    &:hover,&:focus,&:active{
+                        background-color: var(--theme_primary_color) !important;
+                        color: #fff !important;
+                    }
+                    &.highlight {
+                        background-color: var(--theme_primary_color) !important;
+                        border: none !important;
+                    }
+
+                    &.cancel {
+                        &:focus,&:active,&:hover{
+                            background: var(--theme_primary_color) !important;
+                            color: #fff !important; 
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .cash-move-popup {
+        .input-amount {
+            align-items: center;
+
+            .input-type {
+                line-height: 45px;
+                height: auto;
+            }
+        }
+
+        input,
+        textarea:focus {
+            box-shadow: 0px 0px 2px 0px var(--theme_primary_color) !important;
+
+            &.active {
+                box-shadow: none !important;
+            }
+        }
+
+        .popup-input {
+            box-shadow: 0px 0px 2px 0px var(--theme_primary_color) !important;
+        }
+
+        .popup {
+            height: max-content !important;
+
+            header {
+                margin-bottom: 0px !important;
+            }
+        }
+
+        .footer {
+            padding: 8px 8px 8px !important;
+            justify-content: space-between;
+            display: flex;
+            border: none !important;
+            display: flex;
+            width: 100%;
+
+            .button {
+                color: var(--theme_primary_color);
+                margin: 0px !important;
+                border-radius: 6px;
+
+                &.confirm {
+                    color: #fff !important;
+                    background: var(--theme_primary_color) !important;
+                }
+            }
+
+            .odoo-theme-button {
+                background: #fff !important;
+                color: var(--theme_primary_color) !important;
+            }
+        }
+    }
+}

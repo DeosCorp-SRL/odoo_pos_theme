@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+    <!-- CashierName -->
+    <t t-name="CashierName" t-inherit="point_of_sale.CashierName" t-inherit-mode="extension" primary="1" owl='1' >
+        <xpath expr="//div[@class='oe_status']" position="replace">
+            <div class="oe_status">
+                <img t-att-src="avatar" t-att-alt="username" class="avatar"/> 
+            </div>
+        </xpath>
+    </t> 
+    <t t-name="SyncNotification" t-inherit="point_of_sale.SyncNotification" t-inherit-mode="extension" primary="1" owl='1' >
+        <xpath expr="//div[@class='oe_status']" position="replace">
+            <div class="oe_status" t-on-click="onClick">
+                <span t-if="env.pos.synch.pending" class="js_msg">
+                    <t t-esc="env.pos.synch.pending" /> 
+                    <span t-if="env.isMobile" class="s_btn">Pending</span>
+                </span>
+                <div t-if="env.pos.synch.status === 'connected'" class="js_connected oe_icon oe_green">
+                    <i class="fa fa-fw fa-wifi" role="img" aria-label="Synchronisation Connected" title="Synchronisation Connected"></i> 
+                    <t t-if="props.ShowLabel &amp;&amp; props.ShowLabel == true">
+                        <span class="s_btn" t-if="env.isMobile">Connected</span>    
+                    </t>
+                    
+                </div>
+                <div t-if="env.pos.synch.status === 'connecting'" class="js_connecting oe_icon">
+                    <i class="fa fa-fw fa-spin fa-circle-o-notch" role="img"
+                    aria-label="Synchronisation Connecting" title="Synchronisation Connecting"></i>
+                    <t t-if="props.ShowLabel &amp;&amp; props.ShowLabel == true">
+                        <span class="s_btn" t-if="env.isMobile">Connecting</span>
+                    </t>
+                </div>
+                <div t-if="env.pos.synch.status === 'disconnected'" class="js_disconnected oe_icon oe_red">
+                    <i class="fa fa-fw fa-wifi" role="img" aria-label="Synchronisation Disconnected"
+                    title="Synchronisation Disconnected"></i>
+                    <t t-if="props.ShowLabel &amp;&amp; props.ShowLabel == true">
+                    <span t-if="env.isMobile" class="s_btn">Disconnected</span>
+                    </t>
+                </div>
+                <div t-if="env.pos.synch.status === 'error'" class="js_error oe_icon oe_red">
+                    <i class="fa fa-fw fa-warning" role="img" aria-label="Synchronisation Error"
+                    title="Synchronisation Error"></i>
+                    <t t-if="props.ShowLabel &amp;&amp; props.ShowLabel == true">
+                    <span t-if="env.isMobile" class="s_btn">Connection Error</span>
+                    </t>
+                </div>
+            </div>
+        </xpath>
+    </t>
+    <!-- HeaderButton -->
+    <t t-name="HeaderButton" t-inherit="point_of_sale.HeaderButton" t-inherit-mode="extension" primary="1" owl='1' >
+        <xpath expr="//div[@class='header-button']" position="replace">
+            <div class="header-button" t-on-click="onClick">
+                <span class="s_btn">
+                    <i class="fa fa-sign-out" role="img"/> 
+                    <t t-if="props.ShowLabel">
+                        <span t-if="env.isMobile">Close</span>
+                    </t>
+                </span>
+            </div>
+        </xpath>
+    </t>
+</templates>

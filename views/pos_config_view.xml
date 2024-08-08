@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="pos_config_setting_inherit_view_bits" model="ir.ui.view">
+        <field name="name">pos.config.setting.inherit.view.bits</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_config_kanban" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('dropdown-pos-config')]/div/div[hasclass('o_kanban_manage_view')]" position="inside">
+                <field name="theme_configuration_id" />
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

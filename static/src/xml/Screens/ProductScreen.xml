@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+     <!-- ProductScreen changes -->
+    <t t-name="ProductScreen" t-inherit="point_of_sale.ProductScreen" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[@class='product-screen']" position="replace">
+            <div class="product-screen d-flex h-100 bg-100" t-att-class="{ 'd-none': !props.isShown }">
+                <div class="rightpane" t-if="!ui.isMobile || pos.mobile_pane === 'right'"> 
+                    <ProductsWidget />
+                    <!-- <ProductsWidget mobileSearchBarIsShown="props.mobileSearchBarIsShown"/> -->
+                    <MobileOrderWidget t-if="ui.isMobile" pane="pos.mobile_pane" onSwitchPane.bind="switchPane"/>
+                </div>
+                <div class="leftpane pane-border d-flex flex-column border-end bg-200" t-if="!ui.isSmall || pos.mobile_pane === 'left'" t-att-class="{'flex-grow-1': ui.isSmall}">
+                    <div class="left-pan-header">
+                        <h5>Resumen de Ordenes</h5> 
+                    </div>
+                    <OrderWidget/>
+                    <div class="pads">
+                        <div class="container">
+                            <div class="tab-buttons row text-center">
+                                <span t-on-click="switchTab" id="controll-buttons" class="col-6 tab-btn">Order Actions</span>
+                                <span t-on-click="switchTab" id="action-widget" class="col-6 tab-btn active">Order Process</span>
+                            </div>
+                        </div>
+                        <div class="custom-tabs-content">
+                            <div id="controll-buttons" class="tab-content">
+                                <div class="control-buttons"> 
+                                    <t t-foreach="controlButtons" t-as="cb" t-key="cb.name">
+                                        <t t-component="cb.component" t-key="cb.name"/>
+                                        </t>  
+                                </div>
+                            </div>
+                            <div id="action-widget" class="tab-content active">
+                                <div class="subpads">
+                                    <NumpadWidget activeMode="env.pos.numpadMode" />
+                                    <ActionpadWidget partner="partner" actionName="constructor.numpadActionName" onSwitchPane.bind="switchPane" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="toggle-container w-100"> 
+                        <button t-if="this.numpad_is_shown.numpad_is_shown" class="button btn-toggle w-100 py-2 font-medium" t-on-click="ToggleNumpad">
+                            <i class="px-1 fa fa-angle-double-down" aria-hidden="true"></i>Ocultar numpad/acciones
+                        </button>
+                        <button t-if="!this.numpad_is_shown.numpad_is_shown" class="button btn-toggle w-100 py-2 font-medium" t-on-click="ToggleNumpad">
+                            <i class="px-1 fa fa-angle-double-up" aria-hidden="true"></i>Mostrar numpad/acciones
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </t>
+</templates>

@@ -1,0 +1,336 @@
+.pos{ 
+    // product screen numpad
+    .leftpane { 
+        background: #ffffff;
+        .tab-buttons {
+            border-radius: 14px;  
+            span.tab-btn {
+                color: #424242;
+                border-radius: 14px;
+                border: 1px solid #eee;
+                padding: 10px 20px;
+                font-size: 18px;
+                font-weight: 700;
+
+                &.active {
+                    background-color: #0d6efdbd;
+                    color: #fff;
+                }
+                @media (max-width:768px) {
+                    font-size: 14px;
+                }
+            }
+        }
+        // product screen
+        .pads { 
+            border: none !important;
+            background-color: #fff !important;
+        }
+
+        .custom-tabs-content {
+            .button{
+                transition: none !important;
+            }
+            .tab-content {
+                display: none;
+                &.active {
+                    display: block;
+
+                    button,
+                    button.input-button,
+                    .mode-button  {
+                        border: none !important;
+                        flex: 1 1 50%;
+                        border: 1px solid #eee !important;
+                        border-radius: 14px !important; 
+                        .control-button-number{
+                            margin-left: 0px !important;
+                            margin-right: 0px !important;
+                            height: 25px !important;
+                            width: 25px !important;
+                        } 
+                        &:active,&:focus,&:hover{
+                            img{
+                                filter: invert(100%);
+                            }
+                        }
+                    } 
+                    // Did this to differentiate pay button style
+                    button:not(.pay),
+                    button.input-button,
+                    .mode-button  { 
+                        &:focus,&:active,&:hover{
+                            background: var(--theme_secondary_color) !important;
+                            color: #fff !important; 
+                        }
+                    } 
+
+                    // Above style contains other elements styles too
+                    .control-button {
+                        text-align: left;
+                        .control-button-number{
+                            margin-left: 0px !important;
+                            margin-right: 0px !important;
+                            height: 25px !important;
+                            width: 25px !important;
+                        }
+                    }
+                }
+
+                .subpads {
+                    display: block !important; 
+                    border-radius: 6px;
+                    .order-submit.highlight{
+                        background: var(--theme_secondary_color) !important;
+                    }
+                    .actionpad { 
+                        width: 100% !important;
+                        border: none !important;
+                        display: grid !important;
+                        grid-template-columns: repeat(2, 1fr); 
+                        gap: 5px;
+                        padding: 0px 6px 6px; 
+                        
+                        button { 
+                            padding: 0px !important; 
+                            &.validation {
+                                flex-direction: row !important;
+                                height: var(--btn-height-size); 
+                                .pay-circle {
+                                    background: #fff;
+                                    font-size: 14px !important;
+                                    line-height: inherit !important;
+                                    margin-bottom: 0px !important;
+                                    margin-right: 8px !important;
+                                    padding: 8px 14px 5px 14px;
+                                    width: auto !important;
+                                    @media (max-width:991px) {
+                                        display: none !important;
+                                    }
+                                }
+
+                            }
+
+                            &.set-partner { 
+                                &:hover,&:active,&:focus{
+                                    background-color: #fff !important;
+                                    color: var(--theme_primary_color) !important;
+                                    i{
+                                        color: var(--theme_primary_color) !important;
+                                    }
+                                }
+
+                                i {
+                                    left: 0px;
+                                    top: 0px; 
+                                    font-size: 28px;
+                                    background: #fff;
+                                    line-height: 50px;
+                                    width: 55px;
+                                    border-radius: 12px;
+                                }
+                            }
+                            i.fa{
+                                color: var(--theme_primary_color) !important;
+                            }
+                        }
+                        @media screen and (max-width:768px){
+                            grid-template-columns: repeat(3, 1fr); 
+                        }
+                    } 
+                    .numpad {
+                        width: 100% !important;
+                        gap: 5px;
+                        padding: 5px;
+                        border: none !important;
+                    }
+                    @media screen and (max-width:768px){
+                        .numpad button{
+                            height: 35px !important;
+                        }
+                        .actionpad button{
+                            height: 50px !important;
+                        }
+                    }
+                } 
+                .control-buttons {
+                    gap: 4px;
+                    padding: 5px 5px; 
+                    border-radius: 14px;
+
+                    .control-button {
+                        padding: 2px 10px;
+                        flex: 1 1 40%;
+                        justify-content: center;
+                        border: 1px solid #eee !important;
+                        border-radius: 14px !important;
+                        i.fa{
+                            color: var(--theme_primary_color);
+                        }
+                        &.highlight{
+                            background: var(--theme_secondary_color) !important;
+                            i.fa{
+                                color: #fff !important;
+                            }
+                            
+                        }
+                        &:focus,&:active{
+                            background: var(--theme_secondary_color) !important;
+                            color: #fff !important;
+                            i.fa{
+                                color: #fff !important;
+                            }
+                        } 
+                    }
+                }
+            }
+        }   
+    }
+    .ticket-screen{
+        .control-buttons{ 
+            position: relative;  
+            width: 100%;
+            font-weight: bold;
+            vertical-align: middle;
+            color: #4A4F59;
+            font-size: 14px;
+            margin-bottom: 10px;
+            .control-button{ 
+                border : none !important;
+                box-shadow: 0px 0px 2px #bfbfbf;
+                margin: 0px 8px !important;
+                padding: 6px !important;
+                border-radius: 6px !important;
+                &:focus,&:active{
+                    background: var(--theme_secondary_color) !important;
+                    color: #fff !important;
+                } 
+            }
+            
+        }
+        .leftpane{ 
+            background: #eee !important;
+            border-radius: 16px 16px 0px 0px !important;
+            padding-top: 15px;
+            .order-container{
+                border-radius: 16px 16px 0px 0px !important;
+                background: #ffff;
+            }
+        }
+        .subpads {
+            display: block !important; 
+            border-radius: 14px;
+            .order-submit.highlight{
+                background: var(--theme_secondary_color) !important;
+            }
+            .actionpad { 
+                width: 100% !important;
+                border: none !important;
+                display: grid !important;
+                grid-template-columns: repeat(2, 1fr); 
+                gap: 5px;
+                padding: 0px 6px 6px; 
+                
+                button {
+                    border: 1px solid #eee !important;
+                    padding: 0px !important; 
+                    
+                    &.validation {
+                        flex-direction: row !important;
+                        height: var(--btn-height-size); 
+                        .pay-circle {
+                            background: #fff;
+                            font-size: 14px !important;
+                            line-height: inherit !important;
+                            margin-bottom: 0px !important;
+                            margin-right: 8px !important;
+                            padding: 8px 14px 5px 14px;
+                            width: auto !important;
+                            @media (max-width:991px) {
+                                display: none !important;
+                            }
+                        }
+
+                    } 
+                    &.set-partner {
+                        &:focus,&:active{
+                            background: var(--theme_primary_color) !important;
+                            color: #fff !important;
+                            i {
+                                background: #fff !important;
+                            }
+                        }
+                    } 
+                    i.fa{
+                        color: var(--theme_primary_color) !important;
+                    }
+                }
+                @media screen and (max-width:768px){
+                    grid-template-columns: repeat(3, 1fr); 
+                }
+            } 
+            .numpad {
+                width: 100% !important;
+                gap: 5px;
+                padding: 5px;
+                border: none !important;
+                button{
+                    border: 1px solid #eee !important;
+                    border-radius: 14px !important;
+                    &:focus,&:active{
+                        background: var(--theme_secondary_color) !important;
+                        color: #fff !important;
+                    } 
+                }
+            }
+            @media screen and (max-width:768px){
+                .numpad button{
+                    height: 35px !important;
+                }
+                .actionpad button{
+                    height: 50px !important;
+                }
+            }
+        }
+    }
+    // payment screen numpad
+    .payment-screen.screen,.product-screen {
+        .payment-numpad {
+            .numpad {
+                width: 100% !important;
+                gap: 12px;
+                padding: 5px;
+                border: none !important; 
+                button {
+                    border: 0px solid #eee !important;
+                    border-radius: 14px !important;
+                    box-shadow: 0px 0px 25px #eee;
+                }
+            }
+        }
+    }
+    .leftpane{
+        .toggle-container{ 
+            z-index: 999; 
+            button{
+                height: 40px;
+                font-weight: bold;
+                vertical-align: middle;
+                color: #22223b;
+                font-size: 14px;
+                display: inline-flex;
+                text-align: center;
+                align-items: center;
+                justify-content: center;
+                border-radius: 0px 0px 12px 12px !important;
+            }
+        }
+        .pads.hidden{
+            height: 0%;
+            opacity: 0;
+            .custom-tabs-content{
+                display: none !important;
+            }
+        }
+    } 
+}

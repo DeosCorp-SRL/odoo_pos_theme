@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="point_of_sale_index_bits" inherit_id="point_of_sale.index" name="POS">
+        <xpath expr="//body" position="attributes">
+            <attribute name="class" value="pos_body"></attribute>
+        </xpath>
+    </template>
+
+</odoo>

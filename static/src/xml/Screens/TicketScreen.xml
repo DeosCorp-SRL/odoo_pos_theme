@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+    <t t-name="point_of_sale.TicketScreen" t-inherit-mode="extension" owl="1" >
+    <!-- <t t-name="TicketScreen" t-inherit="point_of_sale.TicketScreen" t-inherit-mode="extension" owl="1" > -->
+        <xpath expr="//div[@class='leftpane']" position="inside">
+            <div class="toggle-container w-100">
+                <button t-if="this.isNumpad_shown.isNumpad_shown" class="button btn-toggle w-100 py-2 font-medium" t-on-click="ToggleNumpad">
+                    <i class="px-1 fa fa-angle-double-down" aria-hidden="true"></i>Hide numpad/actions
+                </button>
+                <button t-if="!this.isNumpad_shown.isNumpad_shown" class="button btn-toggle w-100 py-2 font-medium" t-on-click="ToggleNumpad">
+                    <i class="px-1 fa fa-angle-double-up" aria-hidden="true"></i>Show numpad/actions
+                </button>
+            </div>
+        </xpath>
+    </t>
+</templates>

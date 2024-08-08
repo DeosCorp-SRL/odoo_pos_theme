@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+    <t t-name="PosContentHeader" owl="1"> 
+        <div class="screen-content-header align-items-center justify-content-between"> 
+            <div class="d-flex align-items-center">
+                <div class="header-logo" t-if="env.isMobile"> 
+                    <div class="nav-toggle text-center"> 
+                        <img t-if="env.pos.config" class="pos-logo" t-attf-src="/web/image/pos.config/#{env.pos.config.id}/logo_image"/> 
+                    </div>
+                </div>
+                <div class="header-logo" t-if="!env.isMobile">
+                    <div class="nav-toggle mx-3" t-on-click="ToggleMenu">
+                        <span class="fa fa-th-list"/>
+                    </div>     
+                </div>
+                <ul class="navbar-nav" t-if="!env.isMobile"> 
+                    <li class="nav-item d-none d-sm-block ms-0">
+                        <h5 class="welcome-text mb-0">Good <t t-esc="this.meridiem"/>, 
+                            <span class="text-black ">
+                                <t t-if="env.pos.user" t-esc="env.pos.user.name"/>
+                            </span>
+                        </h5> 
+                    </li>
+                </ul>
+            </div>
+            <div class="d-flex align-items-center"> 
+                <t t-if="env.pos.config &amp;&amp; env.pos.config.is_table_management ">
+                    <BackToFloorButton />
+                </t> 
+                <div class="pos-rightheader p-0 m-0"> 
+                    <div class="status-buttons" t-if="props.Uistate === 'READY'">
+                        <CashierName />
+                        <SaleDetailsButton t-if="env.proxy.printer" isHeaderButton="true"/>
+                        <ProxyStatus t-if="env.pos.config.use_proxy" />
+                        <CustomerFacingDisplayButton t-if="customerFacingDisplayButtonIsShown" />
+                        <SyncNotification/>
+                        <HeaderButton/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

@@ -1,0 +1,17 @@
+.pos{
+    .splitbill-screen.screen{
+        .lines{
+            .orderline.selected{
+                background: var(--theme_primary_color);
+            }
+        }
+        .pay-button{
+            .button{
+                &:active,&:focus{
+                    background: var(--theme_primary_color);
+                    color: #fff !important;
+                }
+            }
+        }
+    }
+}

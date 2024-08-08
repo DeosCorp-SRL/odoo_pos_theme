@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+    <t t-name="BottomMenus" owl="1" >
+        <div class="container-header-actions" t-if="env.isMobile">
+            <div class="scrollable-row vertical h-100 d-flex justify-content-between align-items-center">
+                <li class="vm-item col-3 d-grid text-center" t-on-click="()=> this.trigger('open-menus')">
+                    <i class="fa fa-th-large" />
+                    <span class="item">Menu</span>
+                </li> 
+                <li class="vm-item with-badge col-3 d-grid text-center" t-att-class="{to_act:items_number &gt; 0}" t-on-click="onClick" t-att-badge="count">
+                    <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                    <span class="item">Orders</span>
+                </li>
+                <li class="vm-item col-3 d-grid text-center" t-on-click="() => this.showScreen('ProfileView')">
+                    <i class="fa fa-user"/>
+                    <span class="item">Profile</span>
+                </li>
+            </div>
+        </div>
+    </t>
+</templates>

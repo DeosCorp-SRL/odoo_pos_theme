@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates id="bits_customisations" xml:space="preserve"> 
+    <!--  CashMoveButton Changes-->
+    <t t-name="delight_pos_theme_bits.CashMoveButton" t-inherit="point_of_sale.CashMoveButton" t-inherit-mode="extension" owl="1" primary="1">
+        <xpath expr="//div" position="replace">
+            <div class="cash-move-button link-btn" t-on-click="onClick">
+                <i class="fa fa-money" aria-hidden="true"></i>
+                <span class="px-1 link-btn-text" >Cash In/Out</span>
+            </div>
+        </xpath>
+    </t>
+    <!-- TicketButton Changes -->
+    <t t-name="delight_pos_theme_bits.TicketButton" t-inherit="point_of_sale.TicketButton" t-inherit-mode="extension" owl="1" primary="1">
+        <xpath expr="//div" position="replace">
+            <div class="ticket-button link-btn" t-att-class="{ highlight: props.isTicketScreenShown }" t-on-click="onClick">
+                <div class="with-badge" t-att-badge="count">
+                    <i class="fa fa-ticket" aria-hidden="true"></i>
+                </div>
+                <div class="link-btn-text">Orders</div>
+            </div>
+        </xpath>
+    </t> 
+    <!-- HeaderButton Changes -->
+    <t t-name="delight_pos_theme_bits.HeaderButton" t-inherit="point_of_sale.HeaderButton" t-inherit-mode="extension" owl="1" primary="1">
+        <xpath expr="//div" position="replace">
+            <div class="header-button" t-on-click="onClick">
+                <span>
+                    <i class="fa fa-sign-out" role="img"/>
+                    <t t-if="!env.isMobile"></t>
+                </span>
+            </div>
+        </xpath>
+    </t> 
+</templates>

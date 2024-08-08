@@ -1,0 +1,33 @@
+.pos{
+    .profile-view-container{
+        .top-navigation{
+            .btn-back{
+                color: var(--theme_primary_color);
+                border-radius: 6px;
+                padding: 8px 16px;
+                font-size: 16px;
+            } 
+        }
+        .p-body{ 
+            .container{
+                border-radius: 14px;
+            }
+            .btn-act{
+                background-color: #eee;
+                border-radius: 6px;
+                padding: 10px 10px;
+            }
+            .oe_status{
+                text-align: center;
+                i.fa{
+                    color: var(--theme_primary_color) !important;    
+                }
+            }   
+            .s_btn{
+                display: grid;
+                text-align: center;
+                color: var(--theme_primary_color) !important;
+            }
+        }
+    }
+}

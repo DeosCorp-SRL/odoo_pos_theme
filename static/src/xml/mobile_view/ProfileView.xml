@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<t t-name="ProfileView" owl="1">
+    <div class="profile-view-container container-fluid"> 
+        <div class="top-navigation">
+            <div class="container-fluid justify-content-between pb-3 px-0">
+                <button class="btn-back " t-on-click="() => this.trigger('close-screen')">
+                    <i class="fa fa-angle-double-left"/>
+                </button>
+            </div>
+        </div> 
+        <div class="p-body">
+            <div class="container-fluid bg-white pb-4">
+                <div class="row justify-content-center">
+                    <div class="col-12 py-4">
+                        <div class="profile-img text-center"> 
+                            <img t-att-src="avatar" t-att-alt="username" class="avatar"/>  
+                        </div>
+                        <div class="py-4 text-left">
+                            <div class="prifile-detail pb-2">
+                                <h5><b>Cashier :&nbsp;</b><span t-esc="username" class="username ps-2"/></h5> 
+                            </div>
+                            <div class="prifile-detail pb-2"> 
+                                <h5><b>Branch :&nbsp;</b><span t-esc="env.pos.config.name" class="username ps-2"/></h5> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row status-buttons justify-content-between mx-2"> 
+                    <div class="col-3 btn-act justify-content-center" t-if="env.proxy.printer">
+                        <SaleDetailsButton isHeaderButton="true"/>
+                    </div>
+                    <div class="col-3 btn-act justify-content-center" t-if="env.pos.config.use_proxy">
+                        <ProxyStatus />
+                    </div>
+                    <div class="col-3 btn-act justify-content-center" t-if="customerFacingDisplayButtonIsShown">
+                        <CustomerFacingDisplayButton />
+                    </div>
+                    <div class="col-3 btn-act justify-content-center">
+                        <SyncNotification ShowLabel="this.showLabel"/>
+                    </div>    
+                    <div class="col-3 btn-act justify-content-center">
+                        <HeaderButton ShowLabel="1"/>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+</t>

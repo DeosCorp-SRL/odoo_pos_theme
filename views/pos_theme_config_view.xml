@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="pos_theme_config_form_view_bits" model="ir.ui.view">
+        <field name="name">pos.theme.config.form.view.bits</field>
+        <field name="model">pos.theme.config</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <div class="oe_button_box" name="button_box"> 
+                        <field name="theme_active" invisible="1"/>
+                        <button class="oe_stat_button"
+                            name ="action_deactive_theme" type ="object" icon ="fa-stop">
+                            <div class="o_stat_info o_form_field">
+                                <span style="font-weight: bold;" class="text-danger">Deactivate Theme</span>
+                            </div>
+                        </button>
+                        <button class="oe_stat_button" name ="action_active_theme" type ="object" icon ="fa-play"> 
+                            <div class="o_stat_info o_form_field">
+                                <span style="font-weight: bold;" class="text-success">Activate Theme</span>
+                            </div>
+                        </button> 
+                    </div>
+                    <group>
+                        <field name="name"></field>    
+                    </group>
+                    <group>
+                        <group>
+                          <label for="theme_primary_color"/>
+                          <div>  
+                              <field name="theme_primary_color" readonly="0"/>
+                              <field name="p_color_picker" string="" widget="color"/>
+                          </div>
+                        </group>
+                        <group>
+                            <label for="theme_secondary_color"/> 
+                            <div> 
+                              <field name="theme_secondary_color" readonly="0"/>
+                              <field name="s_color_picker" string="" widget="color"/>
+                          </div> 
+                        </group>
+                    </group>  
+                </sheet>
+            </form> 
+        </field>
+    </record>
+    <record id="pos_theme_config_tree_view_bits" model="ir.ui.view">
+        <field name="name">pos.theme.config.tree.view.bits</field>
+        <field name="model">pos.theme.config</field>
+        <field name="arch" type="xml">
+            <tree> 
+                <field name="name"/> 
+                <field name="p_color_picker" widget="color" string="Primary color"/> 
+                <field name="s_color_picker" widget="color" string="Primary color"/>  
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_pos_theme" model="ir.actions.act_window">
+        <field name="name">POS theme configurations</field>
+        <field name="res_model">pos.theme.config</field>
+        <field name="view_mode">tree,form</field> 
+    </record>
+    <menuitem
+        id="menu_theme_config_setting_view_bits"
+        name="POS Theme Configuration"
+        sequence="10"
+        action="delight_pos_theme_bits.action_pos_theme"
+        parent="point_of_sale.menu_pos_global_settings"/>
+</odoo>

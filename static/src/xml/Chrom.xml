@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates id="bits_customisations" xml:space="preserve">
+    <!-- Chrom Template Changes -->
+    <t t-name="Chrome" t-inherit="point_of_sale.Chrome" t-inherit-mode="extension" owl="1" primary="1"> 
+        <xpath expr="//div[hasclass('pos-topheader')]" position="attributes"> 
+            <attribute name="t-att-class">{ oe_hidden: state.uiState !== 'READY',lb_visible :env.isMobile}</attribute> 
+        </xpath>    
+         
+        <xpath expr="//div[@class='pos-branding']/img" position="before">
+            <div t-if="env.isMobile" class="nav-toggle pe-2 py-2 text-end" t-on-click="ToggleMenu">
+                <i class="fa fa-remove"></i>
+            </div>     
+        </xpath>
+        <xpath expr="//img" position="replace">  
+            <div class="nav-toggle text-center" t-on-click="ToggleMenu"> 
+                <img t-if="!env.isMobile &amp;&amp; env.pos.config" class="pos-logo" t-attf-src="/web/image/pos.config/#{env.pos.config.id}/logo_image"/> 
+            </div>       
+        </xpath> 
+        <xpath expr="//div[@class='pos-content']//div[@class='subwindow-container-fix screens']" position="inside">
+            <BottomMenus t-if="env.isMobile"/>
+        </xpath>
+        <xpath expr="//div[@class='pos-content']//div[@class='subwindow-container-fix screens']/t[1]" position="before">
+            <PosContentHeader Uistate="state.uiState"/>
+        </xpath>
+    </t>
+</templates>
